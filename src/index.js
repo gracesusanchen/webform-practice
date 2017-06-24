@@ -1,6 +1,12 @@
 const request = require('request');
 const API_KEY = '9622b4723f2375113533c2b614b40';
 
+const MEETUP_LIST = 'meetup-list';
+
+function overwriteMeetupList(html) {
+  document.getElementById(MEETUP_LIST).innerHTML = html;
+}
+
 function meetupTemplate(meetup) {
   let photo = 'https://secure.meetupstatic.com/s/img/041003812446967856280/logo/svg/logo--script.svg';
   if (meetup.key_photo) {
@@ -19,18 +25,16 @@ function renderMeetups(meetups) {
   const template = meetups.reduce((html, meetup, index) =>
     `${html}\n` + meetupTemplate(meetup)
   , '');
-
-  document.getElementById('meetup-list').innerHTML = template;
+  overwriteMeetupList(template);
 }
 
-function handleEmptyResponse() {
-  const template = `<tr><td>No results available. Have you entered a valid zipcode?</td></tr>`;
-  document.getElementById('meetup-list').innerHTML = template;
+function errorHandle() {
+  overwriteMeetupList(
+    `<tr><td>No results available. Have you entered a valid zipcode?</td></tr>`);
 }
 
 function toggleLoading() {
-  const template = `<tr><td>Loading...</td></tr>`;
-  document.getElementById('meetup-list').innerHTML = template;
+  overwriteMeetupList(`<tr><td>Loading...</td></tr>`);
 }
 
 function fetchMeetups(zip) {
@@ -45,14 +49,14 @@ function fetchMeetups(zip) {
   }, (err, response, body) => {
     if (err || response.statusCode !== 200
       || body.length === 0) {
-      handleEmptyResponse();
+      errorHandle();
     } else {
       let parsed = body;
       try {
         parsed = JSON.parse(body);
         renderMeetups(parsed);
       } catch (e) {
-        handleEmptyResponse();
+        errorHandle();
       }
     }
   });
