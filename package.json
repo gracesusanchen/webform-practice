@@ -1,0 +1,31 @@
+{
+  "name": "webform-practice",
+  "version": "1.0.0",
+  "description": "A simple webform",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gracesusanchen/webform-practice.git"
+  },
+  "author": "Grace Chen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gracesusanchen/webform-practice/issues"
+  },
+  "homepage": "https://github.com/gracesusanchen/webform-practice#readme",
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0",
+    "eslint": "^4.1.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.6.0",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.9.0"
+  }
+}
