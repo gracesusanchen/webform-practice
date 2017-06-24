@@ -1,10 +1,19 @@
 <html>
   <head>
     <script src="../build/build.js"></script>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
-    <input />
-    <div id='container'>
+    <div class="container col-8">
+      <div class="row">
+        <h1>Find a meetup nearby</h1>
+        <input class="form-control" id="zip-input"
+          placeholder="Please enter your zipcode" />
+      </div>
+      <div class="row">
+        <table class="table table-striped" id='meetup-list'>
+        </table>
+      </div>
     </div>
   </body>
 </html>
