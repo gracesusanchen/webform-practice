@@ -11,3 +11,7 @@
 * Only tested in Safari. Fix CORS error (as seen in Chrome) by hosting the page locally, and adding the server start method gulp.
 * Once done, can move API key onto server config.
 * Write a nightwatch test for loading the index.html, and enter test zipcodes, and checking the rendered results.
+
+# Resources used
+
+* [Gulp task template](https://gist.github.com/danharper/3ca2273125f500429945)
